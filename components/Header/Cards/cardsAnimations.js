@@ -1,4 +1,5 @@
 
+
 const rotate = [-3,0,3]
 const rotate_hover = [-5,0,5]
 
@@ -8,9 +9,9 @@ const translateX = [100,0,-100]
 export const cards = (order = 0) => {
     return {
         initial: {
-            rotate: rotate[order],
-            translateY:translateY[order],
-            translateX:translateX[order]
+            rotate:rotate[order],
+            translateY: translateY[order],
+            translateX: translateX[order]
         },
         animate: {
             transition: {
@@ -19,6 +20,22 @@ export const cards = (order = 0) => {
         },
         hover: {
             rotate: rotate_hover[order],
+            scale:1.05,
+        }
+    }
+}
+
+
+export const cardsMobile = () => {
+    return {
+        initial: {
+        },
+        animate: {
+            transition: {
+                duration:1.3,
+            }
+        },
+        hover: {
             scale:1.05,
         }
     }

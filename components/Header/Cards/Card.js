@@ -8,14 +8,12 @@ export default function Card({title, description, image, hoverImage, back, icon}
     const[hovered,setHovered] = useState(false);
 
     return(
-        <>
-        <motion.div
+        <>    
+            <div className="card_container" onMouseOver={() => setHovered(true)} onMouseOut={ () => setHovered(false)}>
+            <motion.div
             initial="initial"
             animate="animate"
             whileHover="hover">
-
-    
-            <div className="card_container" onMouseOver={() => setHovered(true)} onMouseOut={ () => setHovered(false)}>
                 <div className='image_container'>
                 <motion.div variants={image_hover} >
                     {!hovered && <Image src={image} width={508} height={498}/>}
@@ -29,19 +27,20 @@ export default function Card({title, description, image, hoverImage, back, icon}
                     </div>
                     <p>{description}</p>
                 </div>
-            </div>
+                
             </motion.div>
+            </div>
 
             <style jsx>
             {`
+
                 .image_back{
                     position: absolute;
-                    top: 0;
                 }
                 .card_container{
-                    width: 532px;
-                    height: 676px;
-                    background: #FFFFFF;
+                    width: 323px;
+                    height: 477px;
+                    background: rgba(255,255,255,.7);
                     border: 1px solid #DAE4F2;
                     box-sizing: border-box;
                     box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.05);
@@ -56,21 +55,25 @@ export default function Card({title, description, image, hoverImage, back, icon}
                     border-radius: 24px 24px 0px 0px;
                     position: relative;
                     overflow: hidden;
+
+                    height: 290px;
+                    display: flex;
+                    align-items: center;
                 }
 
                 .icon_container{
-                    width: 48px;
-                    height: 48px;
+                    width: 26px;
+                    height: 26px;
                     background: #E5F0FF;
-                    border-radius: 8px;
-                    margin: 0px 16px;
+                    border-radius: 8px;                    
+                    margin: 0 16px 0 0;
                 }
 
                 h3{
                     font-family: 'Montserrat';
                     font-style: normal;
                     font-weight: 900;
-                    font-size: 32px;
+                    font-size: 24px;
                     line-height: 100%;
                     text-transform: uppercase;
                     background: ${colors.brand.default};
@@ -86,7 +89,7 @@ export default function Card({title, description, image, hoverImage, back, icon}
 
                 .card_text{
                     padding: 16px 24px 24px;
-                    width: 508px;
+                    width: 100%;
                     height: 154px;
                     background: #FFFFFF;
                     border: 1px solid #DAE4F2;
@@ -101,11 +104,40 @@ export default function Card({title, description, image, hoverImage, back, icon}
 
                 .card_text p{
                     font-weight: 600;
-                    font-size: 18px;
+                    font-size: 16px;
+                    width: auto;
                     line-height: 150%;
                     color: ${colors.neutrals.c600};
-                    width: 372px;
+                    
                 }
+
+                
+                @media(min-width:1464px){
+                    .card_container{
+                    width: 532px;
+                    height: 676px;
+                    background: #FFFFFF;
+                    }
+                    .image_container{
+                        height:auto;
+                    }
+                    .image_back{    
+                        top: 0;
+                    }
+                    h3{
+                        font-size: 32px;
+                    }
+                    .icon_container{
+                        width: 48px;
+                        height: 48px;
+                        margin: 0px 16px;
+                    }
+                    .card_text p{    
+                        font-size: 18px;
+                        width: 372px;
+                    }
+                }
+
             `}
             </style>
         </>

@@ -50,15 +50,18 @@ export default function ProductWrapper ({products}) {
                 <h1><span>Tech</span><span> Products</span></h1>
 
                 <div className="products_menu">
-                    <Filter active={filter} onChange={setFilter} filterOptions={filterOptions}/>
-                    <Sort active={sort} onChange={setSort} />
-                    <Pagination page={page} setPage={setPage} lastPage={lastPage}/>
+                    <span><Filter active={filter} onChange={setFilter} filterOptions={filterOptions}/></span>
+                    <span><Sort active={sort} onChange={setSort} /></span>
+                    <span><Pagination page={page} setPage={setPage} lastPage={lastPage}/></span>
+                    
+                   
+                    
                 </div>
 
                 <ProductList products={sortedProducts} page={page} maxProducts={maxProducts}/>
                 <div className="products_footer">
-                    <Count current={page} total={sortedProducts.length} maxProducts={maxProducts}/>
-                    <Pagination page={page} setPage={setPage} lastPage={lastPage}/>
+                    <span><Count current={page} total={sortedProducts.length} maxProducts={maxProducts}/></span>
+                    <span><Pagination page={page} setPage={setPage} lastPage={lastPage}/></span>
                 </div>
                 
             </section>
@@ -91,10 +94,15 @@ export default function ProductWrapper ({products}) {
                 .products_menu{
                     display: flex;
                     justify-content: space-between;
+                    align-items: center;
                     font-weight: 600;
                     color: ${colors.neutrals.c600};
                     font-size: 18px;
                     height: 60px;
+                }
+
+                .filter-container{
+                    display:none;
                 }
                 .products_footer{
                     display: flex;
@@ -105,6 +113,54 @@ export default function ProductWrapper ({products}) {
                     font-size: 18px;
                     height: 60px;
                     margin-top: 64px;
+                }
+
+                .products_footer span:nth-child(1){
+                    display: flex;
+                    flex: 1 1 0%;
+                }
+
+                @media(max-width:1400px){
+                    .products_menu{
+                        flex-wrap: wrap;
+                        gap: 20px;
+                        height:auto;
+                    }
+                    .products_menu span:nth-child(1){
+                        order:1;
+                    }
+                    .products_menu span:nth-child(2){
+                        order:3;
+                        flex: 0 1 100%;
+                    }
+                    .products_menu span:nth-child(3){
+                        order:2;
+                    }
+
+                }
+
+                @media(max-width:899px){
+                    .products_footer{
+                        flex-wrap:wrap;
+                        gap: 24px;
+                        height: auto;
+                    }
+                    
+                    .products_footer span:nth-child(1){
+                        order:2;    
+                        margin: 0;
+                    }
+                    
+                    .products_footer span:nth-child(2){
+                        order:1;
+                        flex: 0 1 100%;
+                    }
+                }
+
+                @media(max-width:650px){
+                    .products_menu{
+                        justify-content: center;
+                    }
                 }
             `}
             </style>

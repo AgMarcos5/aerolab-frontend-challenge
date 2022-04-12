@@ -5,7 +5,7 @@ export default function Footer () {
     return (
         <>
             <footer>
-            <Link href="https://github.com/AgMarcos5" >
+            <Link href="https://github.com/AgMarcos5/aerolab-frontend-challenge" >
                 <a target="_blank">
                     <div className='icon'></div>
                     View this repository

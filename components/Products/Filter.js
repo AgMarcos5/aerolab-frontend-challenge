@@ -28,7 +28,7 @@ export default function Filter({active, onChange, filterOptions}){
         <>
 
         <div className="filter_container">
-            <div>Filter by:</div>
+            <div className='text'>Filter by:</div>
             <div  className="filter">
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                 <div className="menu" onClick={() => setShow(!show)}>
@@ -109,6 +109,12 @@ export default function Filter({active, onChange, filterOptions}){
 
             .option:hover{
                 background: ${colors.neutrals.c100};
+            }
+
+            @media(max-width:1400px){
+                .text{
+                    display:none;
+                }
             }
 
             `}

@@ -41,9 +41,9 @@ export default function Header() {
             <style jsx> 
             {`
                 .container{                
-                display: flex;
-                align-items: flex-start;
-                gap: 140px;
+                display: flex;                            
+                align-items: center;
+                flex-direction: column;
                 }
 
 
@@ -55,22 +55,25 @@ export default function Header() {
                     flex-direction: column;
                     -webkit-box-align: center;
                     align-items: center;
-                    margin-top: 112px;
-                    margin-bottom:145px;
+                    margin-top: 0;
+                    padding-top:60px;
+                    padding-bottom:145px;
+                    overflow: hidden;
                 }
 
                 .header_text{
-                    max-width: 600px;
+                    max-width: 289px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    align-items: flex-start;
+                    align-items: center;
                     height: 600px;
+                    text-align: center;
                 }
 
                 p{
                     font-weight: 600;
-                    font-size: 18px;
+                    font-size:16px;
                     line-height: 150%;
                     letter-spacing: 0.24em;
                     text-transform: uppercase;
@@ -79,7 +82,7 @@ export default function Header() {
 
                 h1{
                     font-weight: 900;
-                    font-size: 200px;
+                    font-size:96px;
                     line-height: 80%;
                     text-transform: uppercase;
                     display: flex;
@@ -101,7 +104,7 @@ export default function Header() {
 
                 .subtitle{
                     font-weight: 600;
-                    font-size: 18px;
+                    font-size: 16px;
                     line-height: 150%;
                     color: ${colors.neutrals.c600};
                 }
@@ -125,6 +128,54 @@ export default function Header() {
                 .button:hover{
                     background: ${colors.brand.hover};
                 }
+
+
+                @media(min-width:700px){
+                    
+                    .header_text{
+                        max-width: 600px;
+                    }
+
+                    h1{  
+                        font-size: 190px;
+                    }
+                    p, .subtitle{
+                        font-size: 18px;
+                    }
+                }
+
+
+                @media(min-width:1464px){
+                    .container{
+                        align-items: flex-start;
+                        flex-direction: row;
+                    }
+
+                    .header{
+                        margin-top:52px;
+                    }
+                    
+                    .header_text{
+                        max-width: 600px;
+                        text-align: left;
+                        align-items: flex-start;
+                    }
+
+                    h1{  
+                        font-size: 200px;
+                    }
+                    p, .subtitle{
+                        font-size: 18px;
+                    }
+                }
+
+                
+                @media(min-width:1520){
+                    .container{
+                        gap: 5%;
+                    }
+                }
+
 
             `}
             </style>

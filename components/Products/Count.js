@@ -28,6 +28,12 @@ export default function Count ({current,total,maxProducts}) {
                 gap:6px;
                 display:flex;
             }
+
+            @media(max-width:899px){
+                .count{
+                    margin:0;
+                }
+            }
             
         `}
         </style>

@@ -74,6 +74,23 @@ export default function Sort({active, onChange}){
                 from {background-position: 200px 100%;}
                 to {background-position: 0px 600px;}
             }
+
+            @media(max-width:1400px){
+                .sort_text{
+                    display:none;
+                }
+                .sort_container{
+                    padding-left:0;
+                    border:0;
+                }
+            }
+
+            @media(max-width:650px){
+                .sort_container{
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+            }
         `}
 
         </style>

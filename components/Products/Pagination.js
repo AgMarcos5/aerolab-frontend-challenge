@@ -39,6 +39,8 @@ export default function Pagination({page, setPage, lastPage}) {
                 background: #FFFFFF;
                 border: 1px solid #DAE4F2;
                 border-radius: 16px;
+                max-width: 272px;
+                margin: 0 auto;
             }
 
             .menu button{
