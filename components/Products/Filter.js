@@ -52,8 +52,6 @@ export default function Filter({active, onChange, filterOptions}){
                 display: flex;
                 gap: 20px;
                 align-items: center;
-                
-                z-index:2;
             }
 
             .filter{
@@ -62,6 +60,7 @@ export default function Filter({active, onChange, filterOptions}){
                 justify-content: space-evenly;
                 position: relative;
                 cursor:pointer;
+                z-index: 2;
             }
             .menu{
                 display: flex;

@@ -65,7 +65,7 @@ export default function Header() {
                     max-width: 289px;
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
+                    justify-content: space-around;
                     align-items: center;
                     height: 600px;
                     text-align: center;
@@ -133,6 +133,7 @@ export default function Header() {
                 @media(min-width:700px){
                     
                     .header_text{
+                        justify-content: space-between;
                         max-width: 600px;
                     }
 
