@@ -1,7 +1,13 @@
-import '../styles/globals.css'
+import UserContext from '../context/context'
+import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+  <>
+    <UserContext>
+      <Component {...pageProps} />
+    </UserContext>
+  </>)
 }
 
 export default MyApp
