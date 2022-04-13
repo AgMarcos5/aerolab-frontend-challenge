@@ -1,11 +1,14 @@
 import Image from 'next/image'
 import colors from '../../../styles/colors'
 import {useState} from 'react'
-import { motion } from "framer-motion"
+import { motion, useViewportScroll, useTransform } from "framer-motion"
 import { image_hover } from "./cardsAnimations";
 
 export default function Card({title, description, image, hoverImage, back, icon}){
     const[hovered,setHovered] = useState(false);
+    
+    const {scrollY, scrollYProgress} = useViewportScroll();
+    const translateIcons = useTransform(scrollYProgress,[0,0.2],[50,0]);
 
     return(
         <>    
@@ -15,7 +18,7 @@ export default function Card({title, description, image, hoverImage, back, icon}
             animate="animate"
             whileHover="hover">
                 <div className='image_container'>
-                <motion.div variants={image_hover} >
+                <motion.div variants={image_hover} style={{translateY: translateIcons}}>
                     {!hovered && <Image src={image} width={508} height={498}/>}
                     {hovered && <Image src={hoverImage || image} width={508} height={498}/>}
                 </motion.div>

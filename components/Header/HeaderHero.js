@@ -2,10 +2,20 @@
 import Image from "next/image";
 import colors from "../../styles/colors";
 
-import { motion } from "framer-motion"
+import { motion, useViewportScroll, useTransform } from "framer-motion"
 import { heroWrapper, hero, icons } from "../../styles/variants";
 
 export default function HeaderHero() {
+    
+    const {scrollY, scrollYProgress} = useViewportScroll();
+
+    //hero
+    const scaleHero = useTransform(scrollYProgress, [0,0.5], [1,1.3]);
+    const translateHero = useTransform(scrollYProgress,[0,0.5],[0,-125]);
+
+    //icons
+    const translateIcons = useTransform(scrollYProgress,[0,0.5],[0,150]);
+
     return (
         <>
             <div className="header_hero">
@@ -15,10 +25,14 @@ export default function HeaderHero() {
                 initial="initial"
                 animate="animate"
                 className="hero_img">
-                    <Image src="/illustrations/hero-desktop.png"  alt="hero" width={830} height={830}/>
-                    <motion.div className="hero_img_icons" variants={icons} >
+                
+                    <motion.div className="hero_img_icons" variants={icons} style={{translateY: translateIcons}}>
                         <Image src="/illustrations/hero-desktop-2.png"  alt="hero" width={830} height={830}/>
                     </motion.div>
+                    <motion.div style={{scale:scaleHero, translateY:translateHero}}>
+                        <Image src="/illustrations/hero-desktop.png"  alt="hero" width={830} height={830}/>
+                    </motion.div>
+                    
                     
                 </motion.div>
 
@@ -36,7 +50,7 @@ export default function HeaderHero() {
                 .header_hero{    
                     height: auto;
                     margin-top: 40px;
-                    margin-bottom: -180px;
+                    margin-bottom: -220px;
                     display: inline-flex;
                     justify-content: center;
                     z-index: 0;

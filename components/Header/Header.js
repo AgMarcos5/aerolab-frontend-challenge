@@ -3,20 +3,24 @@ import CardsWrapper from "./Cards/CardsWrapper";
 import HeaderHero from "./HeaderHero";
 import Image from 'next/image'
 
-import { motion } from "framer-motion"
+import { motion, useViewportScroll, useTransform } from "framer-motion"
 import { fadeIn, staggerContainer } from "../../styles/variants";
 import Link from 'next/link'
 
 export default function Header() {
+    const {scrollY, scrollYProgress} = useViewportScroll();
+    const translateY = useTransform(scrollY,[0,500],[0,-80]);
+
     return(
         <>
             <section className="header">
                 <div className="container">
-                    <motion.div 
+                    <motion.div  
+                    style={{translateY}}
                     variants={staggerContainer}
                     initial="initial"
                     animate="animate">
-                    <div className="header_text">
+                    <div className="header_text" >
                         <motion.div variants={fadeIn()}>
                             <p>EXPLORE THE</p>
                             <h1><span>TECH</span><span>ZONE</span></h1>
