@@ -1,34 +1,3 @@
-import axios from "axios";
-
-export const redeem = async (id) => {
-	const response = await axios(`${process.env.NEXT_PUBLIC_URL}/redeem`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-			Accept: "application/json",
-			Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
-		},
-		data: JSON.stringify({ productId: id }),
-	});
-	return response;
-};
-
-export const addPoints = async (amount) => {
-	const response = await axios(`${process.env.NEXT_PUBLIC_URL}/user/points`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-			Accept: "application/json",
-			Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
-		},
-		data: JSON.stringify({ amount }),
-	});
-	return response;
-};
-
-
-
-
 export async function getUser() {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/user/me`, {
@@ -44,7 +13,7 @@ export async function getUser() {
     }
 }
 
-export async function redeem2(id){
+export async function redeem(id){
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/redeem`, {
       method: 'POST', 
@@ -61,7 +30,7 @@ export async function redeem2(id){
   }
 }
 
-export async function addPoints2(amount){
+export async function addPoints(amount){
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/user/points`, {
       method: 'POST', 
