@@ -15,7 +15,7 @@ This is a solution to the [Aerolab frontend challenge](https://github.com/Aerola
 
 ### Screenshot
 
-![](./public/illustrarions/preview.jpg)
+![](./public/illustrations/preview.jpg)
 
 ### Links
 
