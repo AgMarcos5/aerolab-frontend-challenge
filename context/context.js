@@ -1,5 +1,5 @@
 import {createContext, useState, useEffect} from 'react'
-import { toastSuccess } from '../components/Toast/Toast';
+import  {toastError, toastSuccess, toastPointsSuccess}  from '../components/Toast/Toast.js';
 import {addPoints, getUser, redeem} from '../config/api';
 
 export const context = createContext();
@@ -21,12 +21,14 @@ export default function UserContext ({children}) {
             
         setIsLoading(true);
         addPoints(amount).then(res => {
-            console.log(res);
             setUser({...user, points: user.points + amount});
+            toastPointsSuccess();
             setIsLoading(false);
         })
-        .catch(error => console.error('Error:', error))
-
+        .catch(() => {
+            toastError();
+            setIsLoading(false);
+        });
     }
 
     const handleRedeem = async (product) => {
@@ -35,12 +37,14 @@ export default function UserContext ({children}) {
             
         setIsLoading(true);
         redeem(product["_id"]).then(res => {
-            console.log(res);
             setUser({...user, points: user.points - product.cost});
             toastSuccess(product.name);
             setIsLoading(false);
         })
-        .catch(error => console.error('Error:aaaaa', error))
+        .catch(() => {
+            toastError();
+            setIsLoading(false);
+        });
     }
 
     const state = {

@@ -35,7 +35,7 @@ export default function BalanceModal({addPoints, showBalance}){
                         )}
                     </div>
                     <motion.div whileTap={{ scale: 0.95 }}>
-                    <div className="button" onClick={() => addPoints(pointActive)}>
+                    <div className={`button ${isLoading ? 'disabled': ''}`} onClick={() => addPoints(pointActive)}>
                         <Image src="/icons/aeropay-3.svg" alt="icon" width={24}  height={24} />
                         Add points
                     </div>
@@ -175,6 +175,10 @@ export default function BalanceModal({addPoints, showBalance}){
                 }
             .button:hover{
                     background: ${colors.brand.hover};
+            }
+            .button.disabled{
+                pointer-events: none;
+                opacity:.7;
             }
 
                 

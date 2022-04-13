@@ -125,6 +125,7 @@ export default function ProductWrapper ({products}) {
                         flex-wrap: wrap;
                         gap: 20px;
                         height:auto;
+                        font-size:16px;
                     }
                     .products_menu span:nth-child(1){
                         order:1;

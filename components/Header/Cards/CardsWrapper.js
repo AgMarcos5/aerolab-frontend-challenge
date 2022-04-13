@@ -8,12 +8,7 @@ import { cards, cardsMobile} from "./cardsAnimations";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 export default function CardsWrapper() {
-    
-
 const isDesktop = useMediaQuery('(min-width: 1464px)');
-console.log(isDesktop)
-
-
     return(
         <>
         <section className="cards_bg">
@@ -30,7 +25,8 @@ console.log(isDesktop)
                     <Card title={card.title} description={card.description} image={card.image} hoverImage={card.image_hover} back={card.back} icon={card.icon}/>
                 </motion.span>):
                 (
-                    <Card title={card.title} description={card.description} image={card.image} hoverImage={card.image_hover} back={card.back} icon={card.icon}/>
+                    <span key={card.title}><Card title={card.title} description={card.description} image={card.image} hoverImage={card.image_hover} back={card.back} icon={card.icon}/></span>
+                    
                )
                 )}
             </div>
