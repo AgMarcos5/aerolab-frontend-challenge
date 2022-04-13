@@ -1,3 +1,5 @@
+
+![head](https://user-images.githubusercontent.com/74142173/163235897-7be233f1-3bc4-405d-b485-7a46ba5fc78d.jpg)
 # Aerolab Frontend Developer coding challenge
 
 This is a solution to the [Aerolab frontend challenge](https://github.com/Aerolab/frontend-developer-coding-challenge). 
@@ -5,7 +7,6 @@ This is a solution to the [Aerolab frontend challenge](https://github.com/Aerola
 ## Table of contents
 
 - [Overview](#overview)
-  - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -13,9 +14,7 @@ This is a solution to the [Aerolab frontend challenge](https://github.com/Aerola
 
 ## Overview
 
-### Screenshot
-
-![](./public/illustrations/preview.jpg)
+https://user-images.githubusercontent.com/74142173/163230066-ed751823-2bd1-4b06-8084-a5c236b98fb2.mp4
 
 ### Links
 
