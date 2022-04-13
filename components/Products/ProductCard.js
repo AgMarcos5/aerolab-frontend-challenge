@@ -4,8 +4,12 @@ import colors from '../../styles/colors'
 
 import { motion } from "framer-motion"
 import { fadeProduct, image_hover} from "./productsAnimations";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 export default function ProductCard({product}){
+
+    
+    const isMobile = useMediaQuery('(max-width:1023px)');
 
     const [points] = usePoints();
     const {isLoading} = useUser();
@@ -27,7 +31,7 @@ export default function ProductCard({product}){
             <div className="product_container">
                 <div className="product_image">
                     <motion.div variants={image_hover} >
-                    <Image src={product.img.hdUrl} width={348} height={344} objectFit="contain" objectPosition="center"/>
+                    <Image src={isMobile ? product.img.url : product.img.hdUrl} width={348} height={344} objectFit="contain" objectPosition="center"/>
                     </motion.div>
                 </div>
                 <div className="product_text">
